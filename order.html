@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>สั่งซื้อสินค้า | Body Scent</title>
+  <meta name="description" content="กรอกข้อมูลเพื่อสั่งซื้อสินค้า Body Scent">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* เฉพาะหน้าสั่งซื้อ */
+    .page-head {
+      padding: var(--space-6) 0 var(--space-5);
+      text-align: center;
+      background: var(--bg-soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .page-head h1 {
+      margin-bottom: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .page-head .rule { margin: var(--space-3) auto; }
+    .page-head p { margin: 0 auto; }
+
+    .order-form {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: var(--space-5) var(--space-4);
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+
+    .field { margin-bottom: var(--space-4); }
+
+    .field label {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+    }
+
+    .field .hint {
+      color: var(--ink-mute);
+      font-size: 0.85rem;
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 5.5rem;
+      line-height: 1.8;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: var(--ink-mute);
+      opacity: 0.7;
+    }
+
+    .order-form .btn { margin-top: var(--space-2); }
+
+    .order-form .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: var(--space-3);
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--ink-mute);
+    }
+
+    .back-link:hover { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      .page-head { padding: var(--space-5) 0 var(--space-4); }
+      .order-form { padding: var(--space-4) var(--space-3); border-left: 0; border-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">BODY SCENT</a>
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html">หน้าแรก</a>
+        <a href="product.html">สินค้า</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1>สั่งซื้อสินค้า</h1>
+        <span class="rule" aria-hidden="true"></span>
+        <p>กรอกข้อมูลด้านล่าง เราจะติดต่อกลับเพื่อยืนยันคำสั่งซื้อ</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <form id="orderForm" class="order-form">
+          <div class="field">
+            <label for="customerName">ชื่อลูกค้า</label>
+            <input type="text" id="customerName" name="customerName" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="contact">เบอร์โทร หรือ Line ID</label>
+            <input type="text" id="contact" name="contact" autocomplete="tel" required>
+          </div>
+
+          <div class="field">
+            <label for="items">รายการสินค้า</label>
+            <input type="text" id="items" name="items" placeholder="เลือกสินค้าจากหน้าสินค้า" required>
+          </div>
+
+          <div class="field">
+            <label for="total">จำนวนเงินรวม (บาท)</label>
+            <input type="text" id="total" name="total" inputmode="decimal" required>
+          </div>
+
+          <div class="field">
+            <label for="note">หมายเหตุ <span class="hint">(ไม่บังคับ)</span></label>
+            <textarea id="note" name="note" rows="3" placeholder="เช่น ที่อยู่จัดส่ง หรือจำนวนที่ต้องการ"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--solid btn--block">ยืนยันสั่งซื้อ</button>
+          <a href="product.html" class="back-link">กลับไปเลือกสินค้า</a>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0" style="margin-left:auto;margin-right:auto;">&copy; 2026 Body Scent</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
